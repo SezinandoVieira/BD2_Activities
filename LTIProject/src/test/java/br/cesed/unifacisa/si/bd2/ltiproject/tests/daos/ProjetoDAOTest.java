@@ -2,8 +2,8 @@ package br.cesed.unifacisa.si.bd2.ltiproject.tests.daos;
 
 import static org.junit.Assert.*;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import br.cesed.unifacisa.si.bd2.ltiproject.daos.ProjetoDAO;
@@ -16,8 +16,8 @@ public class ProjetoDAOTest {
 	private static IDao<Projeto, Long> daoProjeto;
 	private static ProjetoFactory projFactory;
 
-	@BeforeClass
-	public static void test() {
+	@Before
+	public void test() {
 		daoProjeto = new ProjetoDAO();
 	}
 	
@@ -27,8 +27,8 @@ public class ProjetoDAOTest {
 		
 	}
 	
-	@AfterClass
-	public static void encerraConexao(){
+	@After
+	public void encerraConexao(){
 		daoProjeto = null;
 	}
 

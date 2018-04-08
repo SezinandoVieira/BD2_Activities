@@ -17,23 +17,32 @@ public class TecnologiaDAO implements IDao<Tecnologia, Long>{
 		return objetoASerCriado;
 	}
 
-	public Tecnologia delete(Tecnologia objetoASerDeletado) {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(Tecnologia objetoASerDeletado) {
+		tecnologias.remove(objetoASerDeletado);
+		idTec--;
 	}
 
 	public Tecnologia update(Tecnologia objetoUpadate) {
-		// TODO Auto-generated method stub
-		return null;
+		int i = 0;
+		for (; i < tecnologias.size(); i++) {
+			if(tecnologias.get(i).equals(objetoUpadate)){
+				tecnologias.set(i, objetoUpadate);
+				break;
+			}
+		}
+		return tecnologias.get(i);
 	}
 
 	public List<Tecnologia> get() {
 		// TODO Auto-generated method stub
-		return null;
+		return tecnologias;
 	}
 
 	public Tecnologia getPorID(Long objetoID) {
-		// TODO Auto-generated method stub
+		for (Tecnologia tecnologia : tecnologias) {
+			if(tecnologia.getId().equals(objetoID))
+				return tecnologia;
+		}
 		return null;
 	}
 

@@ -13,9 +13,10 @@ public class Projeto {
 	private Professor professor;
 	private Date dataInicio;
 	private Date dataConclusao;
+	private String areaRelacionada;
 
 	public Projeto(String titulo, String descricaoProjeto, ArrayList<Aluno> alunos, ArrayList<Tecnologia> tecnologia,
-			Professor professor, Date dataInicio, Date dataConclusao) {
+			Professor professor, Date dataInicio, Date dataConclusao, String areaRelacionada) {
 		super();
 		this.titulo = titulo;
 		this.descricaoProjeto = descricaoProjeto;
@@ -24,6 +25,7 @@ public class Projeto {
 		this.professor = professor;
 		this.dataInicio = dataInicio;
 		this.dataConclusao = dataConclusao;
+		this.areaRelacionada = areaRelacionada;
 	}
 	
 	public Projeto() {
@@ -93,6 +95,15 @@ public class Projeto {
 	public void setDataConclusao(Date dataConclusao) {
 		this.dataConclusao = dataConclusao;
 	}
+
+	public String getAreaRelacionada() {
+		return areaRelacionada;
+	}
+
+	public void setAreaRelacionada(String areaRelacionada) {
+		this.areaRelacionada = areaRelacionada;
+	}
+	
 	
 	
 

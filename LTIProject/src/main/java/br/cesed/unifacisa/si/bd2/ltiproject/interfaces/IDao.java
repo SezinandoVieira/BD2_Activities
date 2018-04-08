@@ -5,7 +5,7 @@ import java.util.List;
 public interface IDao <T, ID>{
 	
 	T add(T objetoASerCriado);
-	T delete(T objetoASerDeletado);
+	void delete(T objetoASerDeletado);
 	T update(T objetoUpadate);
 	T getPorID (ID objetoID);
 	

@@ -17,23 +17,31 @@ public class AlunoDAO implements IDao<Aluno, Long>{
 		return objetoASerCriado;
 	}
 
-	public Aluno delete(Aluno objetoASerDeletado) {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(Aluno objetoASerDeletado) {
+		alunos.remove(objetoASerDeletado);
+		idAtual--;
 	}
 
 	public Aluno update(Aluno objetoUpadate) {
-		// TODO Auto-generated method stub
-		return null;
+		int i = 0;
+		for (; i < alunos.size(); i++) {
+			if(alunos.get(i).equals(objetoUpadate)){
+				alunos.set(i, objetoUpadate);
+				break;
+			}
+		}
+		return alunos.get(i);
 	}
 
 	public List<Aluno> get() {
-		// TODO Auto-generated method stub
-		return new ArrayList<Aluno>();
+		return alunos;
 	}
 
 	public Aluno getPorID(Long objetoID) {
-		// TODO Auto-generated method stub
+		for (Aluno aluno : alunos) {
+			if(aluno.getId().equals(objetoID))
+				return aluno;
+		}
 		return null;
 	}
 	

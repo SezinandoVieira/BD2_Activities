@@ -6,37 +6,44 @@ import java.util.List;
 import br.cesed.unifacisa.si.bd2.ltiproject.entities.Professor;
 import br.cesed.unifacisa.si.bd2.ltiproject.interfaces.IDao;
 
-public class ProfessorDAO implements IDao<Professor, Long>{
+public class ProfessorDAO implements IDao<Professor, Long> {
 
 	private ArrayList<Professor> professores = new ArrayList<Professor>();
 	private Long idAtualp = 0L;
-	
+
 	public Professor add(Professor objetoASerCriado) {
-		objetoASerCriado.setId(idAtualp++); 
+		objetoASerCriado.setId(idAtualp++);
 		professores.add(objetoASerCriado);
 		return objetoASerCriado;
 	}
 
-	public Professor delete(Professor objetoASerDeletado) {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(Professor objetoASerDeletado) {
+		professores.remove(objetoASerDeletado);
+		idAtualp--;
 	}
 
 	public Professor update(Professor objetoUpadate) {
-		// TODO Auto-generated method stub
-		return null;
+		int i = 0;
+		for (; i < professores.size(); i++) {
+			if (professores.get(i).equals(objetoUpadate)) {
+				professores.set(i, objetoUpadate);
+				break;
+			}
+		}
+		return professores.get(i);
 	}
 
 	public List<Professor> get() {
-		// TODO Auto-generated method stub
-		return null;
+		return professores;
 	}
 
 	public Professor getPorID(Long objetoID) {
-		// TODO Auto-generated method stub
+		for (Professor professores : professores) {
+			if (professores.getId().equals(objetoID))
+				return professores;
+		}
+
 		return null;
 	}
-	
-	
 
 }

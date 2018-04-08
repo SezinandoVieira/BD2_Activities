@@ -17,23 +17,31 @@ public class ProjetoDAO implements IDao<Projeto, Long> {
 		return objetoASerCriado;
 	}
 
-	public Projeto delete(Projeto objetoASerDeletado) {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(Projeto objetoASerDeletado) {
+		projetos.remove(objetoASerDeletado);
+		idProjeto--;
 	}
 
 	public Projeto update(Projeto objetoUpadate) {
-		// TODO Auto-generated method stub
-		return null;
+		int i = 0;
+		for (; i < projetos.size(); i++) {
+			if(projetos.get(i).equals(objetoUpadate)){
+				projetos.set(i, objetoUpadate);
+				break;
+			}
+		}
+		return projetos.get(i);
 	}
 
 	public List<Projeto> get() {
-		// TODO Auto-generated method stub
-		return null;
+		return projetos;
 	}
 
 	public Projeto getPorID(Long objetoID) {
-		// TODO Auto-generated method stub
+		for (Projeto projetos : projetos) {
+			if(projetos.getId().equals(objetoID))
+				return projetos;
+		}
 		return null;
 	}
 
