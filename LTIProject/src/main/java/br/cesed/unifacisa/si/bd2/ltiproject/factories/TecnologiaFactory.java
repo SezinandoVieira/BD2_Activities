@@ -4,9 +4,9 @@ import br.cesed.unifacisa.si.bd2.ltiproject.entities.Tecnologia;
 
 public class TecnologiaFactory {
 
-	public static Tecnologia criaInstancia(Tecnologia objeto) {
-		// TODO Auto-generated method stub
-		return null;
+	public static Tecnologia criaInstancia(String nome, String descricao, String documentacao, String referencia) {
+		
+		return new Tecnologia(nome, descricao, documentacao, referencia);
 	}
 
 }

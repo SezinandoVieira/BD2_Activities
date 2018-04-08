@@ -13,7 +13,6 @@ import br.cesed.unifacisa.si.bd2.ltiproject.interfaces.IDao;
 public class AlunoDAOTest {
 
 	private static IDao<Aluno, Long> dao;
-	private static AlunoFactory fabric;
 
 	@BeforeClass
 	public static void beforeAll() {
@@ -23,7 +22,7 @@ public class AlunoDAOTest {
 	
 	@Test
 	public void addAlunoTest(){
-		Aluno aluno = fabric.criaInstancia("asdasd", 468746, 1);
+		Aluno aluno = AlunoFactory.criaInstancia("asdasd", 468746, 1);
 		aluno = dao.add(aluno);
 		assertTrue(aluno.getId() != null);
 	}

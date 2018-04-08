@@ -4,9 +4,10 @@ import br.cesed.unifacisa.si.bd2.ltiproject.entities.Professor;
 
 public class ProfessorFactory {
 
-	public static Professor criaInstancia(Professor objeto) {
-		// TODO Auto-generated method stub
-		return null;
+	public static Professor criaInstancia(String nome, int matricula) {
+		return new Professor(nome, matricula);
 	}
+
+	
 
 }
