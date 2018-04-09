@@ -76,7 +76,15 @@ public class AlunoDAOTest {
 	
 	@Test
 	public void getAlunoPorIDTest (){
-		
+		try{
+			Aluno aluno = AlunoFactory.criaInstancia("chavao", 68476, 5);
+			aluno = dao.add(aluno);
+			assertNotNull(aluno.getId());
+			
+			assertTrue(dao.getPorID(aluno.getId()).equals(dao.get().get(0)));;
+		}catch (Exception e){
+			fail(e.getMessage());
+		}
 	}
 
 	@After

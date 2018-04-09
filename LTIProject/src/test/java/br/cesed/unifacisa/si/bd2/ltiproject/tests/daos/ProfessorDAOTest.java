@@ -61,16 +61,30 @@ public class ProfessorDAOTest {
 	@Test
 	public void testListProfessor() {
 		try {
-			for (int i  = 0; i < 10; i++){
+			for (int i = 0; i < 10; i++) {
 				Professor professor = ProfessorFactory.criaInstancia("wqwdeqw", 4123123);
 				professor = daop.add(professor);
 				assertNotNull(professor.getId());
 			}
-			
+
 			assertTrue(daop.get().size() == 10);
 
 		} catch (Exception e) {
 			fail("Ta errado carai, AJEITA");
+		}
+	}
+
+	@Test
+	public void getProfessoroPorIDTest() {
+		try {
+			Professor professores = ProfessorFactory.criaInstancia("chavao", 68476);
+			professores = daop.add(professores);
+			assertNotNull(professores.getId());
+
+			assertTrue(daop.getPorID(professores.getId()).equals(daop.get().get(0)));
+			
+		} catch (Exception e) {
+			fail(e.getMessage());
 		}
 	}
 

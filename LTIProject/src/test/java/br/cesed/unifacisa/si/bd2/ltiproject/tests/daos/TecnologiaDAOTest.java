@@ -61,16 +61,30 @@ public class TecnologiaDAOTest {
 	@Test
 	public void testList() {
 		try {
-			for (int i  = 0; i < 10; i++){
+			for (int i = 0; i < 10; i++) {
 				Tecnologia tecnologia = TecnologiaFactory.criaInstancia("asdasd", "adsfassfg", "qdfasdsad", "fgdfads");
 				tecnologia = daot.add(tecnologia);
 				assertNotNull(tecnologia.getId());
 			}
-			
+
 			assertTrue(daot.get().size() == 10);
 
 		} catch (Exception e) {
 			fail("Ta errado carai");
+		}
+	}
+
+	@Test
+	public void getAlunoPorIDTest() {
+		try {
+			Tecnologia tecnologias = TecnologiaFactory.criaInstancia("tec1", "xou", "de bola", "google");
+			tecnologias = daot.add(tecnologias);
+			assertNotNull(tecnologias.getId());
+
+			assertTrue(daot.getPorID(tecnologias.getId()).equals(daot.get().get(0)));
+			
+		} catch (Exception e) {
+			fail(e.getMessage());
 		}
 	}
 
