@@ -73,6 +73,11 @@ public class AlunoDAOTest {
 			fail("Ta errado carai");
 		}
 	}
+	
+	@Test
+	public void getAlunoPorIDTest (){
+		
+	}
 
 	@After
 	public void afterAll() {
