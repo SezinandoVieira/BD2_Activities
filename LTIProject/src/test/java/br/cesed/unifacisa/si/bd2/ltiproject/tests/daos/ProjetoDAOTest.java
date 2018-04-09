@@ -26,14 +26,10 @@ import br.cesed.unifacisa.si.bd2.ltiproject.interfaces.IDao;
 public class ProjetoDAOTest {
 	private ArrayList<Aluno> listAluno = new ArrayList<Aluno>();
 	private static IDao<Aluno, Long> daoA;
-	private static AlunoFactory fabricaA;
 	private ArrayList<Tecnologia> tecList = new ArrayList<Tecnologia>();
 	private static IDao<Tecnologia, Long> daoT;
-	private static TecnologiaFactory tecFabric;
 	private static IDao<Professor, Long> daoProf;
-	private static ProfessorFactory fabricaP;
 	private static IDao<Projeto, Long> daoProjeto;
-	private static ProjetoFactory projFactory;
 
 	@Before
 	public void test() {
@@ -42,9 +38,40 @@ public class ProjetoDAOTest {
 		daoProf = new ProfessorDAO();
 		daoA = new AlunoDAO();
 	}
+
+	@Test
+	public void addProjeto() {
+		try {
+			Aluno aluno = AlunoFactory.criaInstancia("jarvas", 44565, 5);
+			aluno = daoA.add(aluno);
+			listAluno.add(aluno);
+			Aluno aluno2 = AlunoFactory.criaInstancia("tuyisy", 6474, 4);
+			aluno2 = daoA.add(aluno2);
+			listAluno.add(aluno2);
+			Tecnologia tec1 = TecnologiaFactory.criaInstancia("Firebasic", "É uma parada que voce usa no backend",
+					"olha no site ", "tem");
+			tec1 = daoT.add(tec1);
+			tecList.add(tec1);
+			Tecnologia tec2 = TecnologiaFactory.criaInstancia("NodeJS",
+					"É uma parada que voce usa no front provavelmente", "olhe no site", "tem");
+			tec2 = daoT.add(tec2);
+			tecList.add(tec2);
+			Professor prof = ProfessorFactory.criaInstancia("jeronimo", 468768);
+			prof = daoProf.add(prof);
+			Projeto proj = ProjetoFactory.criaInstancia("dor e sofrimento",
+					"Um projeto que tem como objetivo fazer voce sofrer", listAluno, tecList, prof,
+					new Date(02, 04, 2018), new Date(05, 04, 2018), "BD 2");
+			daoProjeto.add(proj);
+			assertTrue(proj.getId() != null);
+
+		} catch (Exception e) {
+			fail(e.getMessage());
+		}
+
+	}
 	
 	@Test
-	public void addProjeto(){
+	public void deleteProjeto(){
 		try{
 			Aluno aluno = AlunoFactory.criaInstancia("jarvas", 44565, 5);
 			aluno = daoA.add(aluno);
@@ -56,22 +83,26 @@ public class ProjetoDAOTest {
 			tec1 = daoT.add(tec1);
 			tecList.add(tec1);
 			Tecnologia tec2 = TecnologiaFactory.criaInstancia("NodeJS", "É uma parada que voce usa no front provavelmente", "olhe no site", "tem");
+			tec2 = daoT.add(tec2);
+			tecList.add(tec2);
 			Professor prof = ProfessorFactory.criaInstancia("jeronimo", 468768);
 			prof = daoProf.add(prof);
 			Projeto proj = ProjetoFactory.criaInstancia("dor e sofrimento", "Um projeto que tem como objetivo fazer voce sofrer", listAluno, tecList, prof, new Date(02, 04, 2018), new Date(05, 04, 2018), "BD 2");
 			daoProjeto.add(proj);
-			assertTrue(proj.getId() != null);
+			daoProjeto.delete(proj);
+			assertTrue(daoProjeto.get().size() == 0);
 			
-		} catch (Exception e){
+		}catch (Exception e){
 			fail(e.getMessage());
 		}
-		
-		
 	}
-	
+
 	@After
-	public void encerraConexao(){
+	public void encerraConexao() {
 		daoProjeto = null;
+		daoT = new TecnologiaDAO();
+		daoProf = new ProfessorDAO();
+		daoA = new AlunoDAO();
 	}
 
 }
