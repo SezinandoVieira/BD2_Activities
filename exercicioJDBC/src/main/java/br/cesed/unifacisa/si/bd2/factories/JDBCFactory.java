@@ -1,4 +1,4 @@
-package br.cesed.unifacisa.si.bd2.entities;
+package br.cesed.unifacisa.si.bd2.factories;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class JDBCFactory {
 
-	private static Connection conn;
 	
-	private JDBCFactory() throws SQLException, ClassNotFoundException{
+	
+	public static Connection criaInstancia() throws SQLException, ClassNotFoundException{
 		
 		Class.forName("org.postgresql.Driver");
 		
@@ -17,12 +17,9 @@ public class JDBCFactory {
 		String password = "123456";
 		
 		
-		this.conn = DriverManager.getConnection(url, user, password);
+		Connection myCon = DriverManager.getConnection(url, user, password);
+		return myCon;
 		
-	}
-	
-	public static Connection getConnection(){
-		return conn;
 	}
 	
 	
