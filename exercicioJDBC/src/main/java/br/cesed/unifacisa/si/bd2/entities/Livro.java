@@ -3,17 +3,19 @@ package br.cesed.unifacisa.si.bd2.entities;
 //Livro só possui um autor
 public class Livro {
 
-	private long livroId;
+	private int livroId;
 	private String titulo;
 	private String descricao;
 	private String isbn;
+	private Editora editora;
 
-	public Livro(long livroId, String titulo, String descricao, String isbn) {
+	public Livro(int livroId, String titulo, String descricao, String isbn, Editora editora) {
 		super();
 		this.livroId = livroId;
 		this.titulo = titulo;
 		this.descricao = descricao;
 		this.isbn = isbn;
+		this.editora = editora;
 	}
 
 	public String getIsbn() {
@@ -24,20 +26,12 @@ public class Livro {
 		this.isbn = isbn;
 	}
 
-	public void setLivroId(long livroId) {
+	public void setLivroId(int livroId) {
 		this.livroId = livroId;
-	}
-
-	public Livro() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public long getLivroId() {
 		return livroId;
-	}
-
-	public void setLivroId(int livroId) {
-		this.livroId = livroId;
 	}
 
 	public String getTitulo() {
@@ -55,7 +49,13 @@ public class Livro {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	
+
+	public Editora getEditora() {
+		return editora;
+	}
+
+	public void setEditora(Editora editoras) {
+		this.editora = editoras;
+	}
 
 }

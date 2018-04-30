@@ -4,7 +4,7 @@ import java.util.List;
 
 import br.cesed.unifacisa.si.bd2.entities.Livro;
 
-public interface IDao {
+public interface IDaoLivros {
 
 	void addLivro(Livro livro) throws ClassNotFoundException;
 
@@ -12,6 +12,6 @@ public interface IDao {
 
 	List<Livro> getList() throws ClassNotFoundException;
 
-	void update(Livro livro);
+	void update(Livro livro) throws ClassNotFoundException;
 
 }

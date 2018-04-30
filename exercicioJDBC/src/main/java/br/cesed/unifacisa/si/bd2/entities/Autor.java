@@ -2,11 +2,11 @@ package br.cesed.unifacisa.si.bd2.entities;
 
 public class Autor {
 
-	private long idAutor;
+	private int idAutor;
 	private String nome;
 	private String email;
 
-	public Autor(String nome, String email, long idAutor) {
+	public Autor(String nome, String email, int idAutor) {
 		super();
 		this.nome = nome;
 		this.email = email;
@@ -33,7 +33,7 @@ public class Autor {
 		return idAutor;
 	}
 
-	public void setIdAutor(long idAutor) {
+	public void setIdAutor(int idAutor) {
 		this.idAutor = idAutor;
 	}
 	

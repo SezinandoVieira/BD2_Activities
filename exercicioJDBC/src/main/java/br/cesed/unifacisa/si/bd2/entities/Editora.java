@@ -2,12 +2,12 @@ package br.cesed.unifacisa.si.bd2.entities;
 
 public class Editora {
 
-	private long idEditora;
+	private int idEditora;
 	private String nome;
 	private String cnpj;
 	private Endereco endereco;
 
-	public Editora(long idEditora, String nome, String cnpj, Endereco endereco) {
+	public Editora(int idEditora, String nome, String cnpj, Endereco endereco) {
 		super();
 		this.idEditora = idEditora;
 		this.nome = nome;
@@ -19,7 +19,7 @@ public class Editora {
 		return idEditora;
 	}
 
-	public void setIdEditora(long idEditora) {
+	public void setIdEditora(int idEditora) {
 		this.idEditora = idEditora;
 	}
 

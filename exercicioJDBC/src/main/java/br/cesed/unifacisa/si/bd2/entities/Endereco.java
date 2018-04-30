@@ -2,7 +2,7 @@ package br.cesed.unifacisa.si.bd2.entities;
 
 public class Endereco {
 
-	private long enderecoId;
+	private int enderecoId;
 	private String rua;
 	private String bairro;
 	private String cidade;
@@ -10,7 +10,7 @@ public class Endereco {
 	private String cep;
 	private int numero;
 
-	public Endereco(long enderecoId, String rua, String bairro, String cidade, String estado, String cep, int numero) {
+	public Endereco(int enderecoId, String rua, String bairro, String cidade, String estado, String cep, int numero) {
 		super();
 		this.enderecoId = enderecoId;
 		this.rua = rua;
@@ -25,7 +25,7 @@ public class Endereco {
 		return enderecoId;
 	}
 
-	public void setEnderecoId(long enderecoId) {
+	public void setEnderecoId(int enderecoId) {
 		this.enderecoId = enderecoId;
 	}
 
